@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const projects = (await getCollection('projects', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout
+  title="Projects | Corbin Fanning"
+  description="Projects by Corbin Fanning."
+>
+  <section class="prose">
+    <h1>Projects</h1>
+    <p class="lede">Things I'm building, mostly while learning agentic engineering.</p>
+  </section>
+
+  {projects.length === 0 ? (
+    <p class="meta">No projects yet.</p>
+  ) : (
+    <div class="grid">
+      {projects.map((project) => (
+        <article class="card">
+          <p class="meta">
+            <span class={`status status-${project.data.status}`}>{project.data.status}</span>
+          </p>
+          <h2>
+            <a href={`/projects/${project.slug}`}>{project.data.title}</a>
+          </h2>
+          <p>{project.data.description}</p>
+          <div class="card-links">
+            {project.data.repo && <a class="text-link" href={project.data.repo}>Repo →</a>}
+            {project.data.demo && <a class="text-link" href={project.data.demo}>Demo →</a>}
+          </div>
+        </article>
+      ))}
+    </div>
+  )}
+</BaseLayout>
