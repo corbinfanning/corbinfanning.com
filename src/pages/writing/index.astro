@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout
+  title="Writing | Corbin Fanning"
+  description="Posts and notes by Corbin Fanning."
+>
+  <section class="prose">
+    <h1>Writing</h1>
+    <p class="lede">Notes and posts as I go.</p>
+  </section>
+
+  {posts.length === 0 ? (
+    <p class="meta">No posts yet.</p>
+  ) : (
+    <ul class="entry-list">
+      {posts.map((post) => (
+        <li>
+          <a href={`/writing/${post.slug}`}>
+            <h2>{post.data.title}</h2>
+            <p class="meta">
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('en-US', {
+                  year: 'numeric', month: 'short', day: 'numeric',
+                })}
+              </time>
+            </p>
+            {post.data.description && <p>{post.data.description}</p>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</BaseLayout>

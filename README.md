@@ -1,20 +1,26 @@
 corbinfanning.com
 =================
 
-Personal resume/portfolio site built with Astro and deployed on Vercel.
+Personal site for Corbin Fanning. Astro + markdown content collections,
+deployed on Vercel. Iterated on primarily from the Claude Code mobile/web app.
 
 ## Local development
 
 ```bash
 npm install
-npm run dev
+npm run dev      # http://localhost:4321
+npm run check    # astro check
+npm run build    # static output to dist/
 ```
 
 ## Deployment
 
-This repo is designed to be connected to Vercel with GitHub integration:
+- Pull requests get automatic Vercel preview deploys.
+- Merges to `master` deploy production at https://corbinfanning.com.
 
-- Pull requests create automatic Preview Deployments.
-- Merges to `main` deploy to production at https://corbinfanning.com.
+## Adding content
 
-Make sure the Vercel project is linked to this repo and the production branch is set to `main`.
+- Posts live in `src/content/writing/*.md`.
+- Projects live in `src/content/projects/*.md`.
+- See [`CLAUDE.md`](./CLAUDE.md) for frontmatter schemas and the mobile
+  workflow setup.

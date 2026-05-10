@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About | Corbin Fanning" description="About Corbin Fanning.">
+  <section class="prose">
+    <h1>About</h1>
+
+    <p>
+      {/* TODO: write a real bio. */}
+      I'm Corbin. This site is where I share what I'm working on as I learn
+      agentic engineering, and write as I figure things out.
+    </p>
+
+    <h2>What you'll find here</h2>
+    <ul>
+      <li><strong>Writing</strong> — notes and posts as I go.</li>
+      <li><strong>Projects</strong> — things I'm building, mostly with Claude Code.</li>
+      <li><strong>Photos</strong> — eventually. Not yet.</li>
+    </ul>
+
+    <h2>Elsewhere</h2>
+    <ul>
+      {/* TODO: real links. */}
+      <li>Email: <a href="mailto:hello@corbinfanning.com">hello@corbinfanning.com</a></li>
+      <li>GitHub: <a href="https://github.com/corbinfanning">github.com/corbinfanning</a></li>
+      <li>LinkedIn: <em>TODO</em></li>
+    </ul>
+
+    <h2>About this site</h2>
+    <p>
+      Built with <a href="https://astro.build">Astro</a>, deployed on Vercel,
+      and iterated on from the Claude Code mobile app. Every change ships as a
+      pull request with a preview URL — see <code>CLAUDE.md</code> in the repo
+      for how it's set up.
+    </p>
+  </section>
+</BaseLayout>
