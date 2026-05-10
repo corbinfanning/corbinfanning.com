@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Recipes | Corbin Fanning">
+  <section class="section">
+    <p class="eyebrow">Recipes</p>
+    <h1>Weekend kitchen notes</h1>
+    <p class="lede">
+      Two recipes I keep coming back to, written in the style of J. Kenji
+      López-Alt&apos;s techniques: a pillowy braided challah, and a custardy
+      French toast that turns yesterday&apos;s loaf into the best part of
+      Sunday morning.
+    </p>
+
+    <div class="grid">
+      <a class="card recipe-card" href="/recipes/challah">
+        <p class="meta">Bread · ~4 hours</p>
+        <h3>Braided challah</h3>
+        <p>
+          Soft, glossy, lightly sweet. Bake one for dinner; turn the leftover
+          slices into French toast.
+        </p>
+        <span class="text-link">View recipe →</span>
+      </a>
+
+      <a class="card recipe-card" href="/recipes/french-toast">
+        <p class="meta">Breakfast · ~30 minutes</p>
+        <h3>Kenji-style French toast</h3>
+        <p>
+          Thick slices of stale challah, an enriched custard, a long soak,
+          and a finishing pass in the oven for a creamy interior.
+        </p>
+        <span class="text-link">View recipe →</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
