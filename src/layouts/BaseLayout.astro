@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title?: string;
   description?: string;
@@ -23,7 +25,6 @@ const isActive = (href: string) => {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
-    <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>
     <div class="page">
